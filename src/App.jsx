@@ -1,6 +1,10 @@
 import UserInput from "./components/UserInput";
 function App() {
-  return <UserInput />;
+  return (
+    <>
+      <UserInput />;
+    </>
+  );
 }
 
 export default App;
