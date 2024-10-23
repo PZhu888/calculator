@@ -1,21 +1,4 @@
-import { useState } from "react";
-
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInverstment: 10000,
-    annualInverstment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-  function handelChange(inputIdentifier, newValue) {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      };
-    });
-  }
-
+export default function UserInput({ userInput, onChange }) {
   return (
     <section id="user-input">
       <form action="">
@@ -25,20 +8,20 @@ export default function UserInput() {
             <input
               type="number"
               required
-              value={userInput.initialInverstment}
+              value={userInput.initialInvestment}
               onChange={(event) =>
-                handelChange("initialInverstment", event.target.value)
+                onChange("initialInvestment", event.target.value)
               }
             />
           </p>
           <p>
-            <label htmlFor="name">Annual Inverstment</label>
+            <label>Annual Investment</label>
             <input
               type="number"
               required
-              value={userInput.annualInverstment}
+              value={userInput.annualInvestment}
               onChange={(event) =>
-                handelChange("annuaInverstment", event.target.value)
+                onChange("annualInvestment", event.target.value)
               }
             />
           </p>
@@ -52,7 +35,7 @@ export default function UserInput() {
               required
               value={userInput.expectedReturn}
               onChange={(event) =>
-                handelChange("expectedReturn", event.target.value)
+                onChange("expectedReturn", event.target.value)
               }
             />
           </p>
@@ -62,7 +45,7 @@ export default function UserInput() {
               type="number"
               required
               value={userInput.duration}
-              onChange={(event) => handelChange("duration", event.target.value)}
+              onChange={(event) => onChange("duration", event.target.value)}
             />
           </p>
         </div>
